@@ -2,7 +2,7 @@ public class Locatie {
 	private double LengteGraad;
 	private double BreedteGraad;
 
-	public Locatie(int lengte, int breedte) {
+	public Locatie(double lengte, double breedte) {
 		this.LengteGraad = lengte;
 		this.BreedteGraad = breedte;
 	}
