@@ -1,13 +1,11 @@
 public class Plaats extends Locatie {
-
-	private int plaatsnaam;
+	private String plaatsnaam;
 
 	public String getPlaatsNaam() {
-		return null;
+		return plaatsnaam;
 	}
 
-	public void setPlaatsNaam() {
-
+	public void setPlaatsNaam(String plaatsnaam) {
+		this.plaatsnaam = plaatsnaam;
 	}
-
 }

@@ -1,9 +1,6 @@
 public class Vertraging {
-
 	private double Vertragingstijd;
-
 	private String Vertragingssoort;
-
 	private int VerbindingsID;
 
 	public void setVertragingsTijd(double time) {

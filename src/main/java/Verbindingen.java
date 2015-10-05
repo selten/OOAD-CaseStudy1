@@ -1,9 +1,6 @@
 public class Verbindingen {
-
 	private int VerbindingID;
-
 	private Locatie Startpunt;
-
 	private Locatie Eindpunt;
 
 	public boolean getToegang() {
