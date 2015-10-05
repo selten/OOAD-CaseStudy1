@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Routes {
 
-	private ArrayList<Route> routes;
+	private HashMap<Route,ArrayList> routes;
 	private static final HashSet<Route> DB_ROUTES = new HashSet<Route>(){
 		{
 			add(new Route("Utrecht","Arnhem", new ArrayList<Integer>(Arrays.asList(1,2,3))));
@@ -14,17 +14,22 @@ public class Routes {
 		}};
 
 
-	public ArrayList<Route> creerRoutes(String stad1, String stad2) {
+	public HashMap<Route,ArrayList> creerRoutes(String stad1, String stad2) {
 		boolean running = true;
 
 		for (Route routeOption : DB_ROUTES) {
-			if (routeOption.checkRoute(stad1, stad2)) {
-				routeOption.getVerbindingen();
-				routeOption.TotaleVertraging();
-				routes.add(routeOption);
+			if (routeOption.checkRoute()) {
+                ArrayList DescriptiveData = new ArrayList();
+				DescriptiveData.add(routeOption.getVerbindingen());
+				DescriptiveData.add(routeOption.TotaleVertraging());
+                DescriptiveData.add(routeOption.getTijd());
+				routes.put(routeOption, DescriptiveData);
 			}
 		}
 		return routes;
 	}
 
+    public HashMap<Route,ArrayList> getRoutes() {
+        return routes;
+    }
 }

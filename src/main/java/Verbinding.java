@@ -7,11 +7,7 @@ public class Verbinding {
     private boolean Toegang;
 
 	public boolean getToegang() {
-		return false;
-	}
-
-	public double getVertraging() {
-		return 0;
+		return Toegang;
 	}
 
 	public void creerVerbinding(Plaats start, Plaats eind, int dist) {
@@ -62,9 +58,5 @@ public class Verbinding {
             Toegang = false;
             return true;
         }
-    }
-
-    public boolean getToegankelijk() {
-        return Toegang;
     }
 }

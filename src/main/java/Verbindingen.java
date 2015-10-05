@@ -51,5 +51,7 @@ public class Verbindingen {
         }
     }
 
-
+    public ArrayList getVerbindingen() {
+        return verbindingen;
+    }
 }
