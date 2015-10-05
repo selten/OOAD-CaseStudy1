@@ -1,8 +1,7 @@
-public class Plaats extends Locatie {
+public class Plaats {
 	private String plaatsnaam;
 
-	public Plaats(double lengte, double breedte, String plaatsnaam) {
-		super(lengte, breedte);
+	public Plaats(String plaatsnaam) {
 		this.plaatsnaam = plaatsnaam;
 	}
 

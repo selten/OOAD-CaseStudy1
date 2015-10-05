@@ -1,9 +1,10 @@
-public class Hectometerpaal extends Locatie {
+public class Hectometerpaal {
     private double Breedte;
     private double Lengte;
 
-    public Hectometerpaal(int lengte, int breedte) {
-        super(lengte, breedte);
+    public Hectometerpaal(double lengte, double breedte) {
+        setBreedteGraad(breedte);
+        setLengteGraad(lengte);
     }
 
     public void setBreedteGraad(double breedte) {
