@@ -1,13 +1,15 @@
+import java.util.ArrayList;
+
 public class Routes {
-	private Locatie Startpunt;
-	private Locatie Eindpunt;
-	private double Reistijd;
 
-	public void getVerbindingen(String stad1, String stad2) {
+	private ArrayList routes;
 
-	}
-
-	public void TotaleVertraging() {
+	public void creerRoutes(String stad1, String stad2) {
 
 	}
+
+	public ArrayList getRoutes() {
+		return null;
+	}
+
 }
