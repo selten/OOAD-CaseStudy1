@@ -14,7 +14,6 @@ public class Verbindingen {
         HashMap<String,Integer> UtrechtFrom = new HashMap();
         UtrechtFrom.put("Arnhem",50000);
         UtrechtFrom.put("Nijmegen",75000);
-        UtrechtFrom.put("Elst",65000);
         HashMap<String,Integer> ArnhemFrom = new HashMap();
         ArnhemFrom.put("Utrecht",60000);
         ArnhemFrom.put("Nijmegen",20000);
@@ -24,7 +23,6 @@ public class Verbindingen {
         NijmegenFrom.put("Arnhem",25000);
         NijmegenFrom.put("Elst", 13000);
         HashMap<String,Integer> ElstFrom = new HashMap();
-        ElstFrom.put("Utrecht",70000);
         ElstFrom.put("Arnhem",12000);
         ElstFrom.put("Nijmegen", 12000);
 
@@ -52,4 +50,6 @@ public class Verbindingen {
             }
         }
     }
+
+
 }
