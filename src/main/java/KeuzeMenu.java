@@ -38,7 +38,7 @@ public class KeuzeMenu {
         for(Route route : data.keySet()) {
             double time = 0;
             ArrayList al = data.get(route);
-            if(al.size() >= 3) {
+            if(al.size() >= 2) {
                 double vertraging = new Double(al.get(1).toString());
                 int tijd = (Integer) al.get(2);
                 time = vertraging + (double) tijd;
