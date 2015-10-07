@@ -1,8 +1,8 @@
 public class Verbinding {
 	private Plaats Startpunt;
 	private Plaats Eindpunt;
-	private int Afstand;
-    private double Vertragingstijd;
+	private int Afstand =0;
+    private double Vertragingstijd =0.00;
     private String Vertragingssoort;
     private boolean Toegang;
 

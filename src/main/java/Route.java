@@ -39,7 +39,7 @@ public class Route {
     public int getTijd() {
         int tijd = 0;
         for(int i : verbindingidlijst) {
-            Verbinding verbinding = (Verbinding) verbindingen.get(i);
+            Verbinding verbinding = verbindingen.get(i);
             if(verbinding != null) {
                 tijd += verbinding.getAfstand();
             }
