@@ -2,8 +2,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Verbindingen {
-    private HashMap distances = new HashMap();
-    private ArrayList verbindingen = new ArrayList();
+    private HashMap<String, HashMap<String,Integer>> distances = new HashMap();
+    private HashMap<Integer,Verbinding> verbindingen = new HashMap();
 
 	public Verbindingen() {
         distanceArrayCreator();
@@ -34,10 +34,11 @@ public class Verbindingen {
 
     private void verbindingCreator() {
         int i = 0;
-        ArrayList<Plaats> plaatsen = Locatie.Plaatsen;
+        Locatie l = new Locatie();
+        ArrayList<Plaats> plaatsen = l.getPlaatsen();
         for(Plaats plaats : plaatsen) {
-            HashMap data = (HashMap) distances.get(plaats);
-            for(Object p2 : data.keySet()) {
+            HashMap<String,Integer> data = distances.get(plaats.getPlaatsNaam());
+            for(String p2 : data.keySet()) {
                 int dist = (Integer) data.get(p2);
                 Plaats p2name = null;
                 for(Plaats plaats2 : plaatsen)
@@ -45,13 +46,13 @@ public class Verbindingen {
                 Verbinding verbinding = new Verbinding();
                 verbinding.creerVerbinding(plaats,p2name,dist);
 
-                verbindingen.add(i,verbinding);
+                verbindingen.put(i,verbinding);
                 i++;
             }
         }
     }
 
-    public ArrayList getVerbindingen() {
+    public HashMap<Integer, Verbinding> getVerbindingen() {
         return verbindingen;
     }
 }

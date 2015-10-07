@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Locatie {
-	protected static ArrayList<Plaats> Plaatsen;
+	private ArrayList<Plaats> Plaatsen = new ArrayList();
     protected static ArrayList<Hectometerpaal> HectometerPalen;
 
     public Locatie() {
@@ -21,5 +21,8 @@ public class Locatie {
         }
     }
 
+    public ArrayList<Plaats> getPlaatsen() {
+        return Plaatsen;
+    }
 
 }

@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Routes {
 
-	private HashMap<Route,ArrayList> routes;
+	private HashMap<Route,ArrayList<Object>> routes = new HashMap();
 	private static final HashSet<Route> DB_ROUTES = new HashSet<Route>(){
 		{
 			add(new Route("Utrecht","Arnhem", new ArrayList<Integer>(Arrays.asList(1,2,3))));
@@ -14,7 +14,7 @@ public class Routes {
 		}};
 
 
-	public HashMap<Route,ArrayList> creerRoutes(String stad1, String stad2) {
+	public HashMap<Route,ArrayList<Object>> creerRoutes(String stad1, String stad2) {
 		boolean running = true;
 
 		for (Route routeOption : DB_ROUTES) {
@@ -29,7 +29,7 @@ public class Routes {
 		return routes;
 	}
 
-    public HashMap<Route,ArrayList> getRoutes() {
+    public HashMap<Route,ArrayList<Object>> getRoutes() {
         return routes;
     }
 }

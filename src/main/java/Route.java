@@ -1,11 +1,12 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Route {
 	private Plaats Startpunt;
 	private Plaats Eindpunt;
 	private double Reistijd;
 	private Verbindingen verbindingLijst = new Verbindingen();
-    private ArrayList verbindingen;
+    private HashMap<Integer,Verbinding> verbindingen;
     private ArrayList<Integer> verbindingidlijst;
 
 	public Route(String stad1, String stad2, ArrayList<Integer> list) {
@@ -17,7 +18,9 @@ public class Route {
         ArrayList verbindingdata = new ArrayList();
         for(int i : verbindingidlijst) {
             Verbinding verbinding = (Verbinding) verbindingen.get(i);
-            verbindingdata.add(verbinding);
+            if(verbinding != null) {
+                verbindingdata.add(verbinding);
+            }
         }
         return verbindingdata;
 	}
@@ -26,7 +29,9 @@ public class Route {
         double tijd = 0;
         for(int i : verbindingidlijst) {
             Verbinding verbinding = (Verbinding) verbindingen.get(i);
-            tijd += verbinding.getVertragingsTijd();
+            if(verbinding != null) {
+                tijd += verbinding.getVertragingsTijd();
+            }
         }
         return tijd;
 	}
@@ -35,7 +40,9 @@ public class Route {
         int tijd = 0;
         for(int i : verbindingidlijst) {
             Verbinding verbinding = (Verbinding) verbindingen.get(i);
-            tijd += verbinding.getAfstand();
+            if(verbinding != null) {
+                tijd += verbinding.getAfstand();
+            }
         }
         return tijd;
     }
@@ -43,9 +50,11 @@ public class Route {
     public boolean checkRoute() {
         boolean toegang = true;
         for(int i : verbindingidlijst) {
-            Verbinding verbinding = (Verbinding) verbindingen.get(i);
+            Verbinding verbinding = verbindingen.get(i);
 
-            if(!verbinding.getToegang()) toegang = false;
+            if(verbinding != null) {
+                if(!verbinding.getToegang()) toegang = false;
+            }
         }
         return toegang;
     }
