@@ -2,8 +2,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Verbindingen {
-    private HashMap<String, HashMap<String,Integer>> distances = new HashMap();
-    private HashMap<Integer,Verbinding> verbindingen = new HashMap();
+    private HashMap<String, HashMap<String,Integer>> distances = new HashMap<String, HashMap<String,Integer>>();
+    private HashMap<Integer,Verbinding> verbindingen = new HashMap<Integer,Verbinding>();
 
 	public Verbindingen() {
         distanceArrayCreator();
@@ -11,18 +11,18 @@ public class Verbindingen {
     }
 
     private void distanceArrayCreator() {
-        HashMap<String,Integer> UtrechtFrom = new HashMap();
+        HashMap<String,Integer> UtrechtFrom = new HashMap<String,Integer>();
         UtrechtFrom.put("Arnhem",50000);
         UtrechtFrom.put("Nijmegen",75000);
-        HashMap<String,Integer> ArnhemFrom = new HashMap();
+        HashMap<String,Integer> ArnhemFrom = new HashMap<String, Integer>();
         ArnhemFrom.put("Utrecht",60000);
         ArnhemFrom.put("Nijmegen",20000);
         ArnhemFrom.put("Elst", 10000);
-        HashMap<String,Integer> NijmegenFrom = new HashMap();
+        HashMap<String,Integer> NijmegenFrom = new HashMap<String, Integer>();
         NijmegenFrom.put("Utrecht",70000);
         NijmegenFrom.put("Arnhem",25000);
         NijmegenFrom.put("Elst", 13000);
-        HashMap<String,Integer> ElstFrom = new HashMap();
+        HashMap<String,Integer> ElstFrom = new HashMap<String, Integer>();
         ElstFrom.put("Arnhem",12000);
         ElstFrom.put("Nijmegen", 12000);
 
@@ -39,15 +39,16 @@ public class Verbindingen {
         for(Plaats plaats : plaatsen) {
             HashMap<String,Integer> data = distances.get(plaats.getPlaatsNaam());
             for(String p2 : data.keySet()) {
-                int dist = (Integer) data.get(p2);
-                Plaats p2name = null;
-                for(Plaats plaats2 : plaatsen)
-                    if (plaats2.getPlaatsNaam().equals(p2.toString())) p2name = plaats2;
-                Verbinding verbinding = new Verbinding();
-                verbinding.creerVerbinding(plaats,p2name,dist);
-
-                verbindingen.put(i,verbinding);
-                i++;
+                if(!plaats.getPlaatsNaam().equals(p2)) {
+                    int dist = data.get(p2);
+                    Plaats p2name = null;
+                    for (Plaats plaats2 : plaatsen)
+                        if (plaats2.getPlaatsNaam().equals(p2)) p2name = plaats2;
+                    Verbinding verbinding = new Verbinding();
+                    verbinding.creerVerbinding(plaats, p2name, dist);
+                    verbindingen.put(i, verbinding);
+                    i++;
+                }
             }
         }
     }
