@@ -4,8 +4,11 @@ import java.util.HashMap;
 public class Verbindingen {
     private HashMap<String, HashMap<String,Integer>> distances = new HashMap<String, HashMap<String,Integer>>();
     private HashMap<Integer,Verbinding> verbindingen = new HashMap<Integer,Verbinding>();
+    private ArrayList<Plaats> plaatsen;
 
 	public Verbindingen() {
+        Locatie l = new Locatie();
+        plaatsen = l.getPlaatsen();
         distanceArrayCreator();
         verbindingCreator();
     }
@@ -34,8 +37,6 @@ public class Verbindingen {
 
     private void verbindingCreator() {
         int i = 0;
-        Locatie l = new Locatie();
-        ArrayList<Plaats> plaatsen = l.getPlaatsen();
         for(Plaats plaats : plaatsen) {
             HashMap<String,Integer> data = distances.get(plaats.getPlaatsNaam());
             for(String p2 : data.keySet()) {
@@ -55,5 +56,9 @@ public class Verbindingen {
 
     public HashMap<Integer, Verbinding> getVerbindingen() {
         return verbindingen;
+    }
+
+    public ArrayList<Plaats> getPlaatsen() {
+        return plaatsen;
     }
 }

@@ -4,7 +4,7 @@ public class Verbinding {
 	private int Afstand =0;
     private double Vertragingstijd = 0.00;
     private String Vertragingssoort;
-    private boolean Toegang;
+    private boolean Toegang = true;
 
 	public void creerVerbinding(Plaats start, Plaats eind, int dist) {
         Startpunt = start;

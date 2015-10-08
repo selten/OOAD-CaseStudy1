@@ -7,27 +7,33 @@ public class KeuzeMenu {
 
 	public static void main(String[] args) {
         keuzeMenu = new KeuzeMenu();
-        HashMap<Integer, Route> routelist = keuzeMenu.vindRoute("Nijmegen","Utrecht");
+        HashMap<Integer, Route> routelist = vindRoute("Utrecht", "Arnhem");
         for(int i : routelist.keySet()) {
             Route r = routelist.get(i);
-            System.out.println(r.getVerbindingen());
+
+            for(Verbinding v : r.getVerbindingen()) {
+                System.out.print(v.getStartpunt().getPlaatsNaam() + " - " + v.getEindpunt().getPlaatsNaam() + "; ");
+            }
+            System.out.println("");
             System.out.println(r.getTijd() + r.TotaleVertraging());
             System.out.println("-----------------------------------");
         }
 	}
 
 	private static HashMap<Integer,Route> vindRoute(String stad1, String stad2) {
-		HashMap<Integer,Route> routeList = new HashMap();
+        HashMap<Integer,Route> routeList = new HashMap<Integer, Route>();
         Routes routes = new Routes();
         HashMap<Route,ArrayList<Object>> data = routes.creerRoutes(stad1, stad2);
         Route quickestRoute = keuzeMenu.getQuickestRoute(data);
         routeList.put(1, quickestRoute);
+
         int i = 1;
-        for(Route r : data.keySet())
+        for(Route r : data.keySet()) {
             if (!r.equals(quickestRoute)) {
                 i++;
-                routeList.put(i,r);
+                routeList.put(i, r);
             }
+        }
         return routeList;
 	}
 

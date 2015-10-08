@@ -7,17 +7,21 @@ public class Route {
 	private double Reistijd;
     private HashMap<Integer,Verbinding> verbindingen;
     private ArrayList<Integer> verbindingidlijst;
+    private ArrayList<Plaats> plaatsen;
 
 	public Route(String stad1, String stad2, ArrayList<Integer> list) {
         Verbindingen verbindingLijst = new Verbindingen();
+        plaatsen = verbindingLijst.getPlaatsen();
+        for(Plaats p : plaatsen) {
+            if(p.getPlaatsNaam().equals(stad1)) Startpunt = p;
+            if(p.getPlaatsNaam().equals(stad2)) Eindpunt = p;
+        }
         verbindingen = verbindingLijst.getVerbindingen();
-        //new ArrayList<Integer>(Arrays.asList(1,2,3))
         verbindingidlijst = list;
 	}
 
 	public ArrayList<Verbinding> getVerbindingen() {
         ArrayList<Verbinding> verbindingdata = new ArrayList<Verbinding>();
-        System.out.println("verbindinglijst grootte: "+verbindingidlijst.size());
         for(int i : verbindingidlijst) {
             Verbinding verbinding = verbindingen.get(i);
             if(verbinding != null) {
@@ -59,5 +63,12 @@ public class Route {
             }
         }
         return toegang;
+    }
+
+    public Plaats getBeginstad() {
+        return Startpunt;
+    }
+    public Plaats getEindstad() {
+        return Eindpunt;
     }
 }
