@@ -15,6 +15,9 @@ public class Verbinding {
     public boolean getToegang() {
         return Toegang;
     }
+    public void setToegang(boolean Toegang) {
+        this.Toegang = Toegang;
+    }
 
     public Plaats getStartpunt() {
         return Startpunt;

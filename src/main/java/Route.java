@@ -26,7 +26,7 @@ public class Route {
             Verbinding verbinding = verbindingen.get(i);
             if(verbinding != null) {
                 verbindingdata.add(verbinding);
-            } else System.out.println("verbinding "+i+" is null.");
+            }
         }
         return verbindingdata;
 	}
