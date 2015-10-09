@@ -88,6 +88,8 @@ public class KeuzeMenu {
             }
             System.out.println("Vertraging doorgegeven op verbinding "+id+", Toegang: "+v.getToegang());
         } else System.out.println("Proberen dit kapot te maken werkt niet :)");
+
+        KeuzeMenu1();
     }
 
     private void geefVertragingOpStukDoor() {
@@ -132,6 +134,8 @@ public class KeuzeMenu {
             v.setVertragingsTijd(t);
             System.out.println("Vertraging doorgegeven op verbinding "+id+", vertragingstijd: "+t);
         } else System.out.println("Proberen dit kapot te maken werkt niet :)");
+
+        KeuzeMenu1();
     }
 
     private void startMetZoekenNaarRoutes() {
